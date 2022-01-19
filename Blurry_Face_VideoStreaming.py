@@ -7,12 +7,12 @@ captura = cv2.VideoCapture(0)
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 cv2.namedWindow('frame')
 cv2.createTrackbar('Blur','frame',0,15,algo)
-cv2.createTrackbar('Gray','frame',0,1,algo)
+cv2.createTrackbar('Gris','frame',0,1,algo)
 
 while True:
     ret, frame = captura.read()
     valor = cv2.getTrackbarPos('Blur', 'frame')
-    valorGris = cv2.getTrackbarPos('Gray','frame')
+    valorGris = cv2.getTrackbarPos('Gris','frame')
     if valorGris ==1:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
