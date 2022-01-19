@@ -4,7 +4,7 @@ def algo (x):
     pass
 
 captura = cv2.VideoCapture(0)
-faceclassif = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 cv2.namedWindow('frame')
 cv2.createTrackbar('Blur','frame',0,15,algo)
 cv2.createTrackbar('Gray','frame',0,1,algo)
@@ -16,7 +16,7 @@ while True:
     if valorGris ==1:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    rostros = faceclassif.detectMultiScale(frame,1.3,5)
+    rostros = faceClassif.detectMultiScale(frame,1.3,5)
 
     for (x,y,w,h) in rostros:
         if valor > 0:
